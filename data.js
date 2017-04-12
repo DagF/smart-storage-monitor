@@ -260,7 +260,7 @@ var rfid = [
     }
 ];
 
-var item = [
+var items = [
     {
         "uuid": "ccbf95fd-4512-48fd-86ea-c1452c04bcfb",
         "name": "test",
@@ -269,7 +269,8 @@ var item = [
         "weight": 8.0,
         "full_weight": 9.0,
         "empty_weight": 8.0,
-        "type": "PAR"
+        "type": "PAR",
+        "rfid": "aa"
     },
     {
         "uuid": "a1f568f4-4a38-48e3-a506-fc6698adb5f9",
@@ -279,7 +280,8 @@ var item = [
         "weight": 8.0,
         "full_weight": 9.0,
         "empty_weight": 8.0,
-        "type": "CON"
+        "type": "CON",
+        "rfid": "ab"
     },
     {
         "uuid": "98b3c78c-73c3-472b-8d9b-a5a2d49dccf9",
@@ -289,7 +291,8 @@ var item = [
         "weight": 8.0,
         "full_weight": 9.0,
         "empty_weight": 8.0,
-        "type": "TOO"
+        "type": "TOO",
+        "rfid": "bb"
     },
     {
         "uuid": "f34cce55-a232-4598-8c44-eadebcca7eb5",
@@ -299,7 +302,8 @@ var item = [
         "weight": 8.0,
         "full_weight": 9.0,
         "empty_weight": 8.0,
-        "type": "PRO"
+        "type": "PRO",
+        "rfid": null
     }
 ];
 
@@ -865,12 +869,20 @@ var weight = [
 ];
 
 
-var users = [{
-    "uuid": "394579fa-8442-4842-a9a6-ff61a65f89ae",
-    "name": "Dag",
-    "rfid": "ssdsd",
-    "created": "2017-04-02T14:09:47.311793Z"
-}];
+var users = [
+    {
+        "uuid": "394579fa-8442-4842-a9a6-ff61a65f89ae",
+        "name": "Dag",
+        "rfid": "E2 46 4B A0",
+        "created": "2017-04-02T14:09:47.311793Z"
+    },
+    {
+        "uuid": "394579fa-8442-4842-a9a6-ff61a65f89ae",
+        "name": "Sivert",
+        "rfid": "5A AB 8F 61",
+        "created": "2017-04-02T14:09:47.311793Z"
+    }
+];
 
 
 
