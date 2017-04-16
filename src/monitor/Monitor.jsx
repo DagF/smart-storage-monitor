@@ -27,6 +27,8 @@ class Monitor extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    //TODO: do this in the reducer
+    //TODO: populate the rfid event with a user or a item in the reducer as well
     let activities = state.monitor.rfid.map(function (value) {
         return {
             type: "rfid",
