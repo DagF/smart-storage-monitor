@@ -879,6 +879,57 @@ const initialState = {
         }
     ]
 };
+// TODO: load data from server
+// TODO: use latest timestamp locally to get new items from server
+initialState.userMap = initialState.users.reduce((map, user) => {
+    map[user.rfid] = user;
+    return map;
+},{});
+initialState.itemMap = initialState.items.reduce((map, item) => {
+    map[item.rfid] = item;
+    return map;
+},{});
+initialState.rfid.map((rfid) => {
+    if(initialState.userMap[rfid.value]){
+        rfid.type = "user";
+        rfid.user = initialState.userMap[rfid.value];
+    }
+    else if(initialState.itemMap[rfid.value]){
+        rfid.type = "item";
+        rfid.item = initialState.itemMap[rfid.value];
+    }
+    else {
+        rfid.type = "unknown";
+    }
+});
+
+initialState.activities = initialState.rfid.map(function (value) {
+    return {
+        type: "rfid",
+        value: value,
+        created: new Date(value.created),
+    }
+});
+Array.prototype.push.apply(initialState.activities,
+    initialState.weight.map(function (value) {
+        return {
+            type: "weight",
+            value: value,
+            created: new Date(value.created),
+        }
+    }));
+Array.prototype.push.apply(initialState.activities,
+    initialState.activity.map(function (value) {
+        return {
+            type: "activity",
+            value: value,
+            created: new Date(value.created),
+        }
+    }));
+initialState.activities.sort(function (a, b) {
+    return a.created - b.created;
+
+});
 
 
 export default (state = initialState, action) => {

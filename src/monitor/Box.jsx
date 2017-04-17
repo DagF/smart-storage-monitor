@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Activity from './Activity';
+
 const Box = ({name, activities}) => {
     /*
 
@@ -14,18 +16,7 @@ const Box = ({name, activities}) => {
      <div>Box weight changed to: 732</div>
      </div>*/
     let renderedActivities = activities.map((activity, key) => {
-        switch (activity.type) {
-            case "rfid":
-                return <div key={key}>User identified</div>;
-            case "weight":
-                let weight = Math.floor(activity.value.value);
-                return <div key={key}>Box weight changed to {weight}</div>;
-            case "activity":
-                return <div key={key}>The box was moved</div>;
-            default:
-                return <div key={key}>Unknown activity</div>
-
-        }
+        return <Activity activity={activity} key={key} />
     });
     return (
         <div className="box">
