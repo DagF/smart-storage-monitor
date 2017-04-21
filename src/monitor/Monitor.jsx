@@ -21,22 +21,25 @@ class Monitor extends React.Component {
 
 
     startPoll() {
-        this.props.dataFetch("1970-01-01T17:21:02.135853Z");
-        /*this.timeout = setTimeout(() => {
+
+        let lastItem = "1970-01-01T00:00:00.000000Z";
+        if(this.props.events.length){
+            lastItem =this.props.events[this.props.events.length - 1].created
+        }
+        this.props.dataFetch(lastItem);
+        this.timeout = setTimeout(() => {
             this.startPoll()
-        }, 1000);*/
+        }, 1000);
     }
 
     render() {
         let box = ["s002", "s004", "s003", "s001"];
         let boxes = box.map((name, i) => {
             let filteredActivities = this.props.events.filter((activity) => {
-                console.log(activity.box + " === " + name + " = " + activity.box === name)
                 return activity.box === name;
             });
             return <Box key={i} name={name} activities={filteredActivities}/>
         });
-        console.log(boxes)
         return (
             <div id="boxes">
                 {boxes}
