@@ -1,3 +1,4 @@
+
 const initialState = {
     boxes: [
         {
@@ -877,7 +878,9 @@ const initialState = {
             "rfid": "5A AB 8F 61",
             "created": "2017-04-02T14:09:47.311793Z"
         }
-    ]
+    ],
+    isFetching: false,
+    events: []
 };
 // TODO: load data from server
 // TODO: use latest timestamp locally to get new items from server
@@ -903,37 +906,15 @@ initialState.rfid.map((rfid) => {
     }
 });
 
-initialState.activities = initialState.rfid.map(function (value) {
-    return {
-        type: "rfid",
-        value: value,
-        created: new Date(value.created),
-    }
-});
-Array.prototype.push.apply(initialState.activities,
-    initialState.weight.map(function (value) {
-        return {
-            type: "weight",
-            value: value,
-            created: new Date(value.created),
-        }
-    }));
-Array.prototype.push.apply(initialState.activities,
-    initialState.activity.map(function (value) {
-        return {
-            type: "activity",
-            value: value,
-            created: new Date(value.created),
-        }
-    }));
-initialState.activities.sort(function (a, b) {
-    return a.created - b.created;
-
-});
-
-
 export default (state = initialState, action) => {
     switch (action.type) {
+        case "fetch":
+            return {...state, isFetching:true};
+        case "gotdt":
+            return {...state, isFetching:false, events: [...state.events, ...action.events]};
+        case "dntgetdt":
+            //dntgetdt
+            return {...state, isFetching:false};
         default:
             return state;
     }

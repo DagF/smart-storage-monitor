@@ -10,7 +10,7 @@ import Monitor from './monitor/Monitor'
 
 import rootReducer from './Reducers'
 
-export const HOST = 'http://gurutrack.idi.ntnu.no:9000/api/';
+export const HOST = 'http://dagfro.de:9000/api/';
 /**
  * This component manages the web-page routing
  */
