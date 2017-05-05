@@ -33,7 +33,7 @@ class Monitor extends React.Component {
     }
 
     render() {
-        let box = ["s002", "s004", "s003", "s001"];
+        let box = ["s002"];
         let boxes = box.map((name, i) => {
             let filteredActivities = this.props.events.filter((activity) => {
                 return activity.box === name;

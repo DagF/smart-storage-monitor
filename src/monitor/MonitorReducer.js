@@ -82,14 +82,14 @@ const initialState = {
         },
         {
             "uuid": "98b3c78c-73c3-472b-8d9b-a5a2d49dccf9",
-            "name": "test2",
+            "name": "Hammer",
             "description": "der",
             "created": "2017-04-02T14:10:23.432586Z",
             "weight": 8.0,
             "full_weight": 9.0,
             "empty_weight": 8.0,
             "type": "TOO",
-            "rfid": "bb"
+            "rfid": "19360"
         },
         {
             "uuid": "f34cce55-a232-4598-8c44-eadebcca7eb5",
@@ -107,7 +107,7 @@ const initialState = {
         {
             "uuid": "394579fa-8442-4842-a9a6-ff61a65f89ae",
             "name": "Dag",
-            "rfid": "E2 46 4B A0",
+            "rfid": "294938465",
             "created": "2017-04-02T14:09:47.311793Z"
         },
         {

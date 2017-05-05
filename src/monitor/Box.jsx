@@ -3,24 +3,22 @@ import React from 'react';
 import Activity from './Activity';
 
 const Box = ({name, activities}) => {
-    /*
 
-     <div>
-
-     <div>Box weight changed to: 353</div>
-     <div>User Dag identified</div>
-     <div>Box weight changed to: 727</div>
-     <div>Box weight changed to: 555</div>
-     <div>Box weight changed to: 3</div>
-     <div>Box weight changed to: 613</div>
-     <div>Box weight changed to: 732</div>
-     </div>*/
-    let renderedActivities = activities.map((activity, key) => {
+    let sub_a = activities;
+    if(activities.length > 15){
+        sub_a=activities.slice(activities.length-15,);
+    }
+    sub_a.map((item) => {item.first = false;} ,{});
+    sub_a.reverse();
+    if(sub_a.length > 0){
+        sub_a[0].first = true;
+    }
+    let renderedActivities = sub_a.map((activity, key) => {
         return <Activity activity={activity} key={key} />
     });
     return (
-        <div className="box">
-            <h1>{name}</h1>
+        <div style={{width:'400px', margin:'0 auto'}} className="box">
+            <h1>Box: {name}</h1>
             <h2>Activities</h2>
             <div className="activities">
                 {renderedActivities}

@@ -10,7 +10,9 @@ import Monitor from './monitor/Monitor'
 
 import rootReducer from './Reducers'
 
-export const HOST = 'http://dagfro.de:9000/api/';
+import './index.css';
+
+export const HOST = 'http://172.24.1.4:9000/api/';
 /**
  * This component manages the web-page routing
  */
